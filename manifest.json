@@ -10,7 +10,7 @@
     "content_scripts": [
     {
       "matches": ["http://sme.sk/*", "http://*.sme.sk/*", "http://aktuality.sk/*", "http://*.aktuality.sk/*", "http://hnonline.sk/*", "http://*.hnonline.sk/*", "http://*.etrend.sk/*", "http://etrend.sk/*", "http://topky.sk/*", "http://*.topky.sk/*", "http://aktualne.sk/*", "http://*.aktualne.sk/*", "http://pravda.sk/*", "http://*.pravda.sk/*"],
-      "js": ["skript.js"],
+      "js": ["lib/xregexp-min.js", "lib/unicode-base.js", "skript.js"],
       "run_at": "document_end"
     }
   ]
