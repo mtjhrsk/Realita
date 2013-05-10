@@ -8,7 +8,6 @@ var patterns = [
     ["((P|p)rosperit\\p{L}*)"],
     ["((Ľ|ľ)avicov\\p{L}* vlád\\{L}*)"],
     ["((P|p)rác\\p{L}*)"],
-    ["((P|p)rác\\p{L}*)"],
     ["((H|h)ospodársk\\p{L}* rast\\p{L}*)"],
     ["((E|e)konomick\\p{L}* rast\\p{L}*)"],
     ["((K|k)ríz\\p{L}*)"],
@@ -21,20 +20,33 @@ var patterns = [
     ["((Š|š)krt\\p{L}*)"],
     ["((E|e)xpert\\p{L}*)"],
     ["((O|o)dborní\\p{L}*)"],
+    ["((A|a)nalyti\\p{L}*"],
     ["(Slovensk.*?)(republik\\p{L}*)", "$1„$2“"],
     ["((E|e)urópsk.*)(prezident\\p{L}*)", "$1„$3“"],
     ["((S|s)mer.*)(sociáln\\p{L}* demokrac\\p{L}*)", "$1„$3“"]
 ];
 
 
-for (var i = 0; i < patterns.length; i++){
+function realitify(lies){
 
-    //create new XRegExp pattern from the string
-    var pattern = new XRegExp(patterns[i][0], "g");
+    //copy the string content, so the original is not manipulated
+    var result = lies.concat("");
 
-    var replacePattern = patterns[i][1] == null ? SIMPLE_REPLACE_PATTERN : patterns[i][1];
+    for (var i = 0; i < patterns.length; i++){
 
-    //replace it
-    document.body.innerHTML = XRegExp.replace(document.body.innerHTML, pattern, replacePattern);
+        //create new XRegExp pattern from the string
+        var pattern = new XRegExp(patterns[i][0], "g");
+
+        //if replace pattern is not defined, use the default
+        var replacePattern = patterns[i][1] == null ? SIMPLE_REPLACE_PATTERN : patterns[i][1];
+
+        //replace it
+        result = XRegExp.replace(result, pattern, replacePattern);
+    }
+
+   return result;
 }
+
+document.body.innerHTML = realitify(document.body.innerHTML);
+
 
