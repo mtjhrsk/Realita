@@ -20,6 +20,7 @@ var patterns = [
     ["((Š|š)krt\\p{L}*)"],
     ["((E|e)xpert\\p{L}*)"],
     ["((O|o)dborní\\p{L}*)"],
+    ["((A|a)nalyti\\p{L}*"],
     ["(Slovensk.*?)(republik\\p{L}*)", "$1„$2“"],
     ["((E|e)urópsk.*)(prezident\\p{L}*)", "$1„$3“"],
     ["((S|s)mer.*)(sociáln\\p{L}* demokrac\\p{L}*)", "$1„$3“"]
