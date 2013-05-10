@@ -27,14 +27,26 @@ var patterns = [
 ];
 
 
-for (var i = 0; i < patterns.length; i++){
+function realitify(lies){
 
-    //create new XRegExp pattern from the string
-    var pattern = new XRegExp(patterns[i][0], "g");
+    //copy the string content, so the original is not manipulated
+    var result = lies.concat("");
 
-    var replacePattern = patterns[i][1] == null ? SIMPLE_REPLACE_PATTERN : patterns[i][1];
+    for (var i = 0; i < patterns.length; i++){
 
-    //replace it
-    document.body.innerHTML = XRegExp.replace(document.body.innerHTML, pattern, replacePattern);
+        //create new XRegExp pattern from the string
+        var pattern = new XRegExp(patterns[i][0], "g");
+
+        //if replace pattern is not defined, use the default
+        var replacePattern = patterns[i][1] == null ? SIMPLE_REPLACE_PATTERN : patterns[i][1];
+
+        //replace it
+        result = XRegExp.replace(result, pattern, replacePattern);
+    }
+
+   return result;
 }
+
+document.body.innerHTML = realitify(document.body.innerHTML);
+
 
