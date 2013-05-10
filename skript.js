@@ -8,7 +8,6 @@ var patterns = [
     ["((P|p)rosperit\\p{L}*)"],
     ["((Ľ|ľ)avicov\\p{L}* vlád\\{L}*)"],
     ["((P|p)rác\\p{L}*)"],
-    ["((P|p)rác\\p{L}*)"],
     ["((H|h)ospodársk\\p{L}* rast\\p{L}*)"],
     ["((E|e)konomick\\p{L}* rast\\p{L}*)"],
     ["((K|k)ríz\\p{L}*)"],
