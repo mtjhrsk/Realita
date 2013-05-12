@@ -8,6 +8,6 @@ http://www.finmag.cz/cs/finmag/kaleidoskop/strcte-si-experty-i-krizi-do-uvozovek
 
 HOW TO PACKAGE
 ===============
-Chrome - copy skript.js into 'chromium' folder, open unpacked extension in Chrome and package it there
+Chrome - modify version in manifest.json, copy skript.js into 'chromium' folder, open unpacked extension in Chrome and package it there
 
-Firefox - copy skript.js into 'firefox/resources/realita/data', zip the *contents* of 'firefox' folder (i.e. install.rdf etc. is at the root of the zip file, not in firefox.zip>firefox) and rename the .zip into 'Realita.xpi'.
+Firefox - modify version in install.rdf, copy skript.js into 'firefox/resources/realita/data', zip the *contents* of 'firefox' folder (i.e. install.rdf etc. is at the root of the zip file, not in firefox.zip>firefox) and rename the .zip into 'Realita.xpi'.
