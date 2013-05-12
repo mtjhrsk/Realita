@@ -1,4 +1,4 @@
-﻿const SIMPLE_REPLACE_PATTERN = "„$1“";
+const SIMPLE_REPLACE_PATTERN = "„$1“";
 
 // Array of patterns to 'quotify'.
 // Array of arrays in the format [REGEX_STRING, REPLACE_PATTERN]
@@ -15,6 +15,7 @@ var patterns = [
     ["(pe(n|ň)i?az\\p{L}*)"],
     ["(predražen\\p{L}*)"],
     ["(zadarmo)"],
+    ["(zľava)"],
     ["(nezamestnan\\p{L}*)"],
     ["(refor\\w*?m\\p{L}*)"],
     ["(škrt\\p{L}*)"],
@@ -49,5 +50,3 @@ function realitify(lies){
 }
 
 document.body.innerHTML = realitify(document.body.innerHTML);
-
-
