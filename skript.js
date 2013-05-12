@@ -16,7 +16,7 @@ var patterns = [
     ["(predražen\\p{L}*)"],
     ["(zadarmo)"],
     ["(nezamestnan\\p{L}*)"],
-    ["(refor\\w?m\\p{L}*)"],
+    ["(refor\\w*?m\\p{L}*)"],
     ["(škrt\\p{L}*)"],
     ["(expert\\p{L}*)"],
     ["(odborní\\p{L}*)"],
