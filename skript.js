@@ -15,7 +15,7 @@ var patterns = [
     ["(pe(n|ň)i?az\\p{L}*)"],
     ["(predražen\\p{L}*)"],
     ["(zadarmo)"],
-    ["(zľava)"],
+    ["(zľav\\p{L}*)"],
     ["(nezamestnan\\p{L}*)"],
     ["(refor\\w*?m\\p{L}*)"],
     ["(škrt\\p{L}*)"],
