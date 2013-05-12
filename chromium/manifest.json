@@ -1,8 +1,8 @@
 ﻿{
   "name": "„Realita“ - svk",
-  "version": "1.0.9",
+  "version": "1.1",
   "manifest_version": 2,
-  "description": "Z reforiem spraví „reformy“, z ľavicovej vlády „ľavicovú vládu“, z úspechu „úspech“. Autor pôvodnej českej verzie - Michal Kašpárek http://www.finmag.cz/cs/finmag/kaleidoskop/strcte-si-experty-i-krizi-do-uvozovek/",
+  "description": "Z reforiem spraví „reformy“, z ľavicovej vlády „ľavicovú vládu“, z úspechu „úspech“. Autor pôvodnej českej verzie - Michal Kašpárek",
   "permissions": [
     "http://sme.sk/*", "http://*.sme.sk/*", "http://aktuality.sk/*", "http://*.aktuality.sk/*", "http://hnonline.sk/*", "http://*.hnonline.sk/*", "http://*.etrend.sk/*", "http://etrend.sk/*", "http://topky.sk/*", "http://*.topky.sk/*", "http://aktualne.sk/*", "http://*.aktualne.sk/*", "http://pravda.sk/*", "http://*.pravda.sk/*"
   ],
