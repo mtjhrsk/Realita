@@ -1,7 +1,7 @@
 const SIMPLE_REPLACE_PATTERN = "„$1“$2";
 
 //to find word boundaries for non-ascii (accented) characters
-const NON_WORD_CHAR_PATTERN = /([,\.\s<:\-\?\!])/;
+const NON_WORD_CHAR_PATTERN = /([,\.\s<:\-\?\!\)])/;
 
 // Array of patterns to 'quotify'.
 // Array of arrays in the format [REGEX_STRING, REPLACE_PATTERN]
