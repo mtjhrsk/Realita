@@ -18,7 +18,7 @@ var patterns = [
     [/(zadarmo)/],
     [/(z[ľl]i?av\w*)/],
     [/(nezamestnan.*?)/],
-    [/(refor\w*?m)/],
+    [/(refor\w*?m.*?)/],
     [/(škrt\w*)/],
     [/(expert\w*)/],
     [/(odborní.*?)/],
@@ -39,7 +39,7 @@ function realitify(lies){
 
         //take the pattern from array and concat it with custom non-word char pattern
         var pattern = new RegExp(patterns[i][0].source + NON_WORD_CHAR_PATTERN.source, "gi");
-
+             console.log(pattern);
         //if replace pattern is not defined, use the default
         var replacePattern = patterns[i][1] == null ? SIMPLE_REPLACE_PATTERN : patterns[i][1];
 
