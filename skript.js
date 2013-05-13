@@ -1,31 +1,32 @@
-const SIMPLE_REPLACE_PATTERN = "„$1“";
+const SIMPLE_REPLACE_PATTERN = "„$1“$2";
+
+//to find word boundaries for non-ascii (accented) characters
+const NON_WORD_CHAR_PATTERN = /([,\.\s<:\-\?\!])/;
 
 // Array of patterns to 'quotify'.
 // Array of arrays in the format [REGEX_STRING, REPLACE_PATTERN]
-// Uses XRegExp library - the patterns are actually strings (backslashes need to be ecaped)
-// Uses XRegExp unicode addon - \\p{L} = any unicode word character (unlike js \w = [A-Za-z])
 var patterns = [
-    ["(prosperit\\p{L}*)"],
-    ["(ľavicov\\p{L}* vlád\\{L}*)"],
-    ["(prác\\p{L}*)"],
-    ["(hospodársk\\p{L}* rast\\p{L}*)"],
-    ["(ekonomick\\p{L}* rast\\p{L}*)"],
-    ["(kríz\\p{L}*)"],
-    ["(úspe(ch|š)\\p{L}*)"],
-    ["(pe(n|ň)i?az\\p{L}*)"],
-    ["(predražen\\p{L}*)"],
-    ["(zadarmo)"],
-    ["(z(ľ|l)i?av\\p{L}*)"],
-    ["(nezamestnan\\p{L}*)"],
-    ["(refor\\w*?m\\p{L}*)"],
-    ["(škrt\\p{L}*)"],
-    ["(expert\\p{L}*)"],
-    ["(odborní\\p{L}*)"],
-    ["(analyti\\p{L}*)"],
-    ["(slovensk.*?)(republik\\p{L}*)", "$1„$2“"],
-    ["európsk(\\p{L}*)\\s(prezident\\p{L}*)", "európsk$1 „$2“"],
-    ["(smer.*)(sociáln\\p{L}* demokrac\\p{L}*)", "$1„$2“"],
-    ["(prezident\\p{L}*)(.*?)(gašparovič\\p{L}*)", "„$1“$2$3"]
+    [/(prosperit\w*)/],
+    [/(ľavicov\.*?\svlád\w*)/],
+    [/(prác\w*)/],
+    [/(hospodársk\w* rast\w*)/],
+    [/(ekonomick\.*?\srast\w*)/],
+    [/(kríz\w*)/],
+    [/(úspe(ch|š).*?)/, "„$1“$3"],
+    [/(pe[nň]i?az.*?)/],
+    [/(predražen.*?)/],
+    [/(zadarmo)/],
+    [/(z[ľl]i?av\w*)/],
+    [/(nezamestnan.*?)/],
+    [/(refor\w*?m)/],
+    [/(škrt\w*)/],
+    [/(expert\w*)/],
+    [/(odborní.*?)/],
+    [/(analyti\w*)/],
+    [/(slovensk.*?)(republik\w*)/, "$1„$2“"],
+    [/európsk(\w*)\s(prezident\w*)/, "európsk$1 „$2“$3"],
+    [/(smer.*)(sociáln\w* demokrac\w*)/, "$1„$2“$3"],
+    [/(prezident\w*)(.*?)(gašparovič\w*)/, "„$1“$2$3$4"]
 ];
 
 
@@ -36,14 +37,14 @@ function realitify(lies){
 
     for (var i = 0; i < patterns.length; i++){
 
-        //create new XRegExp pattern from the string
-        var pattern = new XRegExp(patterns[i][0], "gi");
+        //take the pattern from array and concat it with custom non-word char pattern
+        var pattern = new RegExp(patterns[i][0].source + NON_WORD_CHAR_PATTERN.source, "gi");
 
         //if replace pattern is not defined, use the default
         var replacePattern = patterns[i][1] == null ? SIMPLE_REPLACE_PATTERN : patterns[i][1];
 
         //replace it
-        result = XRegExp.replace(result, pattern, replacePattern);
+        result = result.replace(pattern, replacePattern);
     }
 
    return result;
